@@ -1,0 +1,38 @@
+body {
+  font-family: "Poppins";
+  align-items: center;
+}
+body p {
+  font-size: 15px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  row-gap: 2em;
+  margin-top: 3em;
+  margin-bottom: 50px;
+  margin-inline-start: 15px;
+  margin-inline-end: 15px;
+}
+main .grid.child {
+  box-shadow: 0px 5px 10px hsl(212, 6%, 44%);
+  padding: 25px;
+  padding-inline-start: 40px;
+}
+main .grid.child img {
+  float: right;
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+
+header {
+  text-align: center;
+  padding-top: 10px;
+}
+header h1 {
+  line-height: 1rem;
+  font-size: 26px;
+}/*# sourceMappingURL=style.css.map */
