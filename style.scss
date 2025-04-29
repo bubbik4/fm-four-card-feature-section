@@ -1,3 +1,7 @@
+@mixin header-pos {
+    max-width: 45ch;
+    margin: 0 auto;
+}
 body { 
     font-family: "Poppins";
     align-items: center;
@@ -57,8 +61,7 @@ main {
 header {
     text-align: center;
     padding-top: 10px;
-    max-width: 45ch;
-    margin: 0 auto;
+    @include header-pos;
     h1 {
         line-height: 1rem;
         font-size: 26px;
@@ -98,7 +101,6 @@ header {
         }
     }
     header {
-        max-width: 45ch;
-        margin: 0 auto;
+        @include header-pos;
     }
 }
