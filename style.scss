@@ -10,18 +10,38 @@ body {
 main {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     align-items: center;
     row-gap: 2em;
-    margin-top: 3em;
-    margin-bottom: 50px;
-    margin-inline-start: 15px;
-    margin-inline-end: 15px;
-
+    margin: 3em 15px 50px 15px;
     .grid.child {
-        box-shadow: 0px 5px 10px hsl(212, 6%, 44%);
+        position: relative;
+        box-shadow: 0px 4px 8px hsl(210, 6%, 44%);
         padding: 25px;
         padding-inline-start: 40px;
+        border-radius: 12px;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        &.red::before {
+            background-color: hsl(0, 78%, 62%);
+        }
+        &.cyan::before {
+            background-color: hsl(180, 62%, 55%);
+        }
+        &.orange::before {
+            background-color: hsl(34, 97%, 64%);
+        }
+        &.blue::before {
+            background-color: hsl(212, 86%, 64%);
+        }
         img {
             float: right;
             padding-bottom: 20px;
@@ -36,5 +56,27 @@ header {
     h1 {
         line-height: 1rem;
         font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto)
+    }
+    .grid.child{
+        &.cyan {
+            grid-column: 1;
+            align-self: center;
+        }
+        &.red {
+            grid-column: 2; grid-row: 1; 
+        }
+        &.orange {
+            grid-column: 2; grid-row: 2;
+        }
+        &.blue {
+            grid-column: 3;  
+        }
     }
 }
