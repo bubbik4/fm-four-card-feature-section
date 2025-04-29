@@ -66,31 +66,26 @@ header h1 {
   main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    -moz-column-gap: 2em;
-         column-gap: 2em;
-    row-gap: 2em;
-  }
-  .grid.child {
-    height: 100%;
+    grid-template-rows: repeat(4, auto);
+    gap: 2em;
   }
   .grid.child.cyan {
     align-self: center;
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2/span 2;
   }
   .grid.child.red {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1/span 2;
   }
   .grid.child.orange {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 3/span 2;
   }
   .grid.child.blue {
-    grid-column: 3;
-    grid-row: 2;
     align-self: center;
+    grid-column: 3;
+    grid-row: 2/span 2;
   }
   header {
     max-width: 45ch;
