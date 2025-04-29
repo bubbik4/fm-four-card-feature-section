@@ -2,6 +2,7 @@ body {
     font-family: "Poppins";
     align-items: center;
 
+
     p {
         font-size: 15px;
     }
@@ -12,71 +13,92 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     align-items: center;
+    justify-content: center;
     row-gap: 2em;
     margin: 3em 15px 50px 15px;
-    .grid.child {
-        position: relative;
-        box-shadow: 0px 4px 8px hsl(210, 6%, 44%);
-        padding: 25px;
-        padding-inline-start: 40px;
-        border-radius: 12px;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 5px;
-            width: 100%;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        &.red::before {
-            background-color: hsl(0, 78%, 62%);
-        }
-        &.cyan::before {
-            background-color: hsl(180, 62%, 55%);
-        }
-        &.orange::before {
-            background-color: hsl(34, 97%, 64%);
-        }
-        &.blue::before {
-            background-color: hsl(212, 86%, 64%);
-        }
-        img {
-            float: right;
-            padding-bottom: 20px;
-            padding-top: 15px;
-        }
+
+}
+
+.grid.child {
+    position: relative;
+    box-shadow: 0px 4px 8px hsl(210, 6%, 44%);
+    padding: 25px;
+    padding-inline-start: 40px;
+    border-radius: 12px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+    &.red::before {
+        background-color: hsl(0, 78%, 62%);
+    }
+    &.cyan::before {
+        background-color: hsl(180, 62%, 55%);
+    }
+    &.orange::before {
+        background-color: hsl(34, 97%, 64%);
+    }
+    &.blue::before {
+        background-color: hsl(212, 86%, 64%);
+    }
+    img {
+        float: right;
+        padding-bottom: 20px;
+        padding-top: 15px;
     }
 }
 
 header {
     text-align: center;
     padding-top: 10px;
+    max-width: 45ch;
+    margin: 0 auto;
     h1 {
         line-height: 1rem;
         font-size: 26px;
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     main {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto)
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 2em;
+        row-gap: 2em;
+
     }
-    .grid.child{
+
+    .grid.child {
+        height: 100%;
         &.cyan {
-            grid-column: 1;
             align-self: center;
+            grid-column: 1;
+            grid-row: 2;
         }
         &.red {
-            grid-column: 2; grid-row: 1; 
+            grid-column: 2;
+            grid-row: 1;
+            
         }
         &.orange {
-            grid-column: 2; grid-row: 2;
+            grid-column: 2;
+            grid-row: 3;
         }
         &.blue {
-            grid-column: 3;  
+            grid-column: 3;
+            grid-row: 2;
+            align-self: center;
         }
+    }
+    header {
+        max-width: 45ch;
+        margin: 0 auto;
     }
 }

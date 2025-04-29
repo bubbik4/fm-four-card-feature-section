@@ -11,17 +11,19 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   align-items: center;
+  justify-content: center;
   row-gap: 2em;
   margin: 3em 15px 50px 15px;
 }
-main .grid.child {
+
+.grid.child {
   position: relative;
   box-shadow: 0px 4px 8px hsl(210, 6%, 44%);
   padding: 25px;
   padding-inline-start: 40px;
   border-radius: 12px;
 }
-main .grid.child::before {
+.grid.child::before {
   content: "";
   position: absolute;
   top: 0;
@@ -31,19 +33,19 @@ main .grid.child::before {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-main .grid.child.red::before {
+.grid.child.red::before {
   background-color: hsl(0, 78%, 62%);
 }
-main .grid.child.cyan::before {
+.grid.child.cyan::before {
   background-color: hsl(180, 62%, 55%);
 }
-main .grid.child.orange::before {
+.grid.child.orange::before {
   background-color: hsl(34, 97%, 64%);
 }
-main .grid.child.blue::before {
+.grid.child.blue::before {
   background-color: hsl(212, 86%, 64%);
 }
-main .grid.child img {
+.grid.child img {
   float: right;
   padding-bottom: 20px;
   padding-top: 15px;
@@ -52,20 +54,30 @@ main .grid.child img {
 header {
   text-align: center;
   padding-top: 10px;
+  max-width: 45ch;
+  margin: 0 auto;
 }
 header h1 {
   line-height: 1rem;
   font-size: 26px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   main {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(2, 1fr);
+    -moz-column-gap: 2em;
+         column-gap: 2em;
+    row-gap: 2em;
+  }
+  .grid.child {
+    height: 100%;
   }
   .grid.child.cyan {
-    grid-column: 1;
     align-self: center;
+    grid-column: 1;
+    grid-row: 2;
   }
   .grid.child.red {
     grid-column: 2;
@@ -73,9 +85,15 @@ header h1 {
   }
   .grid.child.orange {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
   }
   .grid.child.blue {
     grid-column: 3;
+    grid-row: 2;
+    align-self: center;
+  }
+  header {
+    max-width: 45ch;
+    margin: 0 auto;
   }
 }/*# sourceMappingURL=style.css.map */
